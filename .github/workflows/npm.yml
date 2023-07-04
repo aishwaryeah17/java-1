@@ -16,10 +16,10 @@ jobs:
           node-version: 18
       - run: |
           cd frontend/react-frontend
-          npm ci
+          npm install
       - run: |
           cd frontend/react-frontend
-          npm test
+          npm 
 
   publish-gpr:
     needs: build

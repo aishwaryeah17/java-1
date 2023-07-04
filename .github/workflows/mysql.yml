@@ -1,0 +1,39 @@
+name: MySql
+
+env:
+  MYSQL_DATABASE: test
+  MYSQL_USER: admin
+  MYSQL_PASSWORD: password
+  MYSQL_HOST: localhost
+  NODE_ENV: test
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    services:
+      localhost:
+        image: mysql:8.0.33
+        ports:
+          - 3306/tcp
+        env:
+          MYSQL_DATABASE: ${{ env.MYSQL_DATABASE }}
+          MYSQL_USER: ${{ env.MYSQL_USER }}
+          MYSQL_PASSWORD: ${{ env.MYSQL_PASSWORD }}
+          MYSQL_ROOT_PASSWORD: ${{ env.MYSQL_PASSWORD }}
+        options: >-
+          --name=mysql-master
+          --health-cmd="mysqladmin ping"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=3
+    steps:
+      - name: Run Tests
+        run: |
+          cd frontend/react-frontend
+          npm run install         

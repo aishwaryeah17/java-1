@@ -14,8 +14,12 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-      - run: npm ci
-      - run: npm test
+      - run: |
+          cd frontend/react-frontend
+          npm ci
+      - run: |
+          cd frontend/react-frontend
+          npm test
 
   publish-gpr:
     needs: build
@@ -29,7 +33,11 @@ jobs:
         with:
           node-version: 18
           registry-url: https://npm.pkg.github.com/
-      - run: npm ci
-      - run: npm publish
+      - run: |
+          cd frontend/react-frontend
+          npm ci
+      - run: |
+          cd frontend/react-frontend
+          npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}

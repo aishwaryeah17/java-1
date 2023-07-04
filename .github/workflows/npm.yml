@@ -20,6 +20,9 @@ jobs:
       - run: |
           cd frontend/react-frontend
           npm i
+      - run: |
+          cd frontend/react-frontend
+          npm build          
 
   publish-gpr:
     needs: build

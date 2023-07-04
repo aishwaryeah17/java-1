@@ -35,9 +35,9 @@ jobs:
           registry-url: https://npm.pkg.github.com/
       - run: |
           cd frontend/react-frontend
-          npm ci
+          npm install
       - run: |
           cd frontend/react-frontend
-          npm publish
+          npm i
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}

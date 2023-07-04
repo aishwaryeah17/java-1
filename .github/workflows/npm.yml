@@ -19,7 +19,7 @@ jobs:
           npm install
       - run: |
           cd frontend/react-frontend
-          npm 
+          npm test
 
   publish-gpr:
     needs: build

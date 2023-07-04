@@ -32,3 +32,14 @@ jobs:
           --health-interval=10s
           --health-timeout=5s
           --health-retries=3
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - run: |
+          cd frontend/react-frontend
+          npm install
+      - run: |
+          cd frontend/react-frontend
+          npm i

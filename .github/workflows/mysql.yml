@@ -36,4 +36,4 @@ jobs:
       - name: Run Tests
         run: |
           cd frontend/react-frontend
-          npm run install         
+          npm run start        

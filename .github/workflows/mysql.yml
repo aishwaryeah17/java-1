@@ -32,8 +32,3 @@ jobs:
           --health-interval=10s
           --health-timeout=5s
           --health-retries=3
-    steps:
-      - name: Run Tests
-        run: |
-          cd frontend/react-frontend
-          npm run start        

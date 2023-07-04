@@ -14,13 +14,15 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-      - run: |
+      - name: Install packages
+        run: |
           cd frontend/react-frontend
           npm install
       - run: |
           cd frontend/react-frontend
           npm i
-      - run: |
+      - name: Run build
+        run: |
           cd frontend/react-frontend
           npm run build          
 
